@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url("https://momentum.photos/img/ad2bd448-e7de-49b2-aaf6-c7a0827da7a4.jpg?momo_cache_bg_uuid=55124b04-89aa-43d4-9713-5c39646114c6");
+            background-position-x: bottom;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        #main {
+            background-color: black;
+            opacity: 70%;
+            height: 500px;
+            width: 500px;
+            border: 4px solid rgb(0, 128, 0);
+            border-radius: 0px 80px 0px 80px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #input {
+            padding: 10px;
+            position: absolute;
+            top: 75%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            background-color: green;
+            border: 2px solid black;
+        }
+
+        ::placeholder {
+            color: black;
+            font-weight: bold;
+        }
+
+        #div {
+            height: 200px;
+            width: 200px;
+            border: 2px solid rgb(0, 128, 0);
+            border-radius: 10px;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        #img{
+            height: 200px;
+        }
+
+        .hide{
+            display: none;
+        }
+
+        button {
+            background-color: green;
+            border-radius: 10px;
+            border: 2px solid black;
+            position: absolute;
+            top: 90%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 15px;
+            width: 100px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: black;
+            color: green;
+            border: 2px solid green;
+            cursor: pointer;
+        }
+        #link{
+           
+            
+            background-color: aqua;
+            padding: 10px;
+            position: absolute;
+            top: 75%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+        }
+        /* responsive css*/
+
+        @media(max-width:412px) {
+     #main{
+        height:300px;
+        width: 250px;
+     }
+     
+     #input{
+        width:150px;
+     }
+        }  
+        #button{
+            width:60px;
+            padding:3px;
+            font-size: 10px;
+        }
+body{
+    background-size: cover;
+}
+#div,#img{
+    height: 80px;
+    width:80px;
+}
+
+
+
+    </style>
+</head>
+
+<body>
+
+    <div id="main">
+        <div id="div" class="hide">
+            <img src="#" alt="QR" id="img">
+        </div>
+        <input type="text" placeholder="Type here...." id="input">
+        <button id="button" onclick="submit()">Generate QR</button>
+    </div>
+
+</body>
+<script>
+
+    let image = document.getElementById('img'); 
+    let input = document.getElementById('input');
+    let button = document.getElementById('button');
+    let url = "";
+
+    function submit() {
+        let value = input.value;
+        url = ('https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + encodeURIComponent(value));
+        image.src = url;
+        input.value = "";
+        div.classList.remove("hide");
+
+    }
+
+
+</script>
+
+</html>
